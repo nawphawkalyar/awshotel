@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="./layout/adminlayout.html">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+</head>
+<body>
+    <div layout:fragment="admin">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-3" th:each="room:${rooms}">
+                    <div class="card" style="width: 18rem;">
+                        <div class="card-body" th:style="${room.roomStatus == room.roomStatus.Reverse}?${'background-color: green;'}:${'background-color: red;'}">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>

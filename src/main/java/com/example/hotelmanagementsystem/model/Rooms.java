@@ -1,8 +1,5 @@
 package com.example.hotelmanagementsystem.model;
 
-import lombok.Data;
-import lombok.RequiredArgsConstructor;
-
 import javax.persistence.*;
 
 @Entity
