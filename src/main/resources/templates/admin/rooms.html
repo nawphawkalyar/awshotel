@@ -12,7 +12,7 @@
             <div class="row">
                 <div class="col-sm-3" th:each="room:${rooms}">
                     <div class="card" style="width: 18rem;">
-                        <div class="card-body" th:style="${room.roomStatus == room.roomStatus.Reverse}?${'background-color: green;'}:${'background-color: red;'}">
+                        <div class="card-body" th:style="${room.roomStatus == room.roomStatus.Reverse}?${'background-color:green;'}:${'background-color:red;'}">
 
                         </div>
                     </div>

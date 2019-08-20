@@ -4,6 +4,7 @@ import com.example.hotelmanagementsystem.model.Rooms;
 import com.example.hotelmanagementsystem.repository.RoomsRepository;
 import org.springframework.stereotype.Service;
 
+import javax.persistence.EntityNotFoundException;
 import java.util.List;
 
 @Service
@@ -23,6 +24,7 @@ public class RoomsServiceImpl implements RoomService {
   @Override
   public Rooms findById(long id) {
     return this.roomsRepository.findById(id).orElse(null);
+
   }
 
   @Override
