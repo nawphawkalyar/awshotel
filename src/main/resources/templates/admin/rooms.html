@@ -9,10 +9,10 @@
 <body>
     <div layout:fragment="admin">
         <div class="container">
-            <div class="row">
+            <div class="row mt-5">
                 <div class="col-sm-3" th:each="room:${rooms}">
-                    <div class="card" style="width: 18rem;">
-                        <div class="card-body" th:style="${room.roomStatus == room.roomStatus.Reverse}?${'background-color:green;'}:${'background-color:red;'}">
+                    <div class="card" style="width: 18rem;" th:style="${room.roomStatus == room.roomStatus.Reverse}?${'border-color:green;'}:${'border-color:red;'}">
+                        <div class="card-body">
 
                         </div>
                     </div>
