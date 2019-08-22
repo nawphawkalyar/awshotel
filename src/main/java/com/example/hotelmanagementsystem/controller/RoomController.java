@@ -45,4 +45,8 @@ public class RoomController {
     model.addAttribute("room",roomService.findById(id));
     return "admin/roomdetail";
   }
+
+  public String deleteRoom(long id){
+
+  }
 }

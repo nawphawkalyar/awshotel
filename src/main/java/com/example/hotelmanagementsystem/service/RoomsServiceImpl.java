@@ -31,4 +31,9 @@ public class RoomsServiceImpl implements RoomService {
   public List<Rooms> findAll() {
     return this.roomsRepository.findAll();
   }
+
+  @Override
+  public void delete(long id) {
+      roomsRepository.deleteById(id);
+  }
 }

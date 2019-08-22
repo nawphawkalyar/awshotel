@@ -9,4 +9,5 @@ public interface RoomService {
   Rooms create(Rooms rooms);
   Rooms findById(long id);
   List<Rooms> findAll();
+  void delete(long id);
 }
