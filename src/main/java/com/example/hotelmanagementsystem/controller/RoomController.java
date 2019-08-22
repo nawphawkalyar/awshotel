@@ -39,6 +39,7 @@ public class RoomController {
     model.addAttribute("rooms",roomService.findAll());
     return "admin/rooms";
   }
+
   @GetMapping("/room/{id}")
   public String showRoomDetails(Model model,@PathVariable("id") long id){
     model.addAttribute("room",roomService.findById(id));
