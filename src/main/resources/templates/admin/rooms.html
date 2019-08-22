@@ -9,11 +9,14 @@
 <body>
     <div layout:fragment="admin">
         <div class="container">
-            <div class="row mt-5">
+            <div class="row">
                 <div class="col-sm-3" th:each="room:${rooms}">
-                    <div class="card" style="width: 18rem;" th:style="${room.roomStatus == room.roomStatus.Reverse}?${'border-color:green;'}:${'border-color:red;'}">
+                    <div class="card my-4" style="width: 18rem;" th:style="${room.roomStatus == room.roomStatus.Reverse}?${'border-color:green;'}:${'border-color:red;'}">
+                        <div class="card-header text-muted text-center">Rooms</div>
                         <div class="card-body">
-
+                            <p class="card-text" th:text="${'Room Number : '+room.roomsNumber}"></p>
+                            <p class="card-text" th:text="${'Room Status : '+room.roomStatus}"></p>
+                            <p class="card-text" th:text="${'Room Type  : '+room.roomType}"></p>
                         </div>
                     </div>
                 </div>

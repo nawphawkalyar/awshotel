@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="./layout/adminlayout.html">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+</head>
+<body>
+    <div layout:fragment="admin">
+        <div class="container">
+            <h1 class="text-center text-muted">Room Details</h1>
+
+            <div class="row">
+                <div class="pull-left">
+                    <img src="'../../static/images/101.jpeg" th:src="@{'/images/'+${room.getRoomsNumber()}+'.jpeg'}" class="col-lg-3" width="200px" height="200px" alt="Responsive image">
+                    <div class="col-md-4">
+                        <p th:text="${'Room Number '+ room.roomsNumber}"></p>
+                        <p th:text="${'Room Status '+ room.roomStatus}"></p>
+                       Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad aliquam aspernatur consequatur consequuntur cumque deleniti dolorem eaque eligendi eveniet facere in minima molestiae nesciunt odit placeat quas, quasi, voluptatem voluptatibus.
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        </div>
+    </div>
+</body>
+</html>
