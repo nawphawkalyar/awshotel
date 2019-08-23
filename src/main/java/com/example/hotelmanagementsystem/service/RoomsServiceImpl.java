@@ -5,7 +5,6 @@ import com.example.hotelmanagementsystem.repository.RoomsRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import javax.persistence.EntityNotFoundException;
 import java.util.List;
 
 @Service
@@ -48,7 +47,7 @@ public class RoomsServiceImpl implements RoomService {
   }
 
   @Override
-  public Rooms findByRoomsNumber(String roomNumber) {
-    return roomsRepository.findByRoomsNumber(roomNumber);
+  public Rooms searchRoomsByNumber(String roomNumber) {
+    return roomsRepository.findByRoomsNumber(roomNumber).orElse(null);
   }
 }

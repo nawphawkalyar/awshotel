@@ -11,5 +11,5 @@ public interface RoomService {
   List<Rooms> findAll();
   void delete(long id);
   Rooms update(long id,Rooms rooms);
-  Rooms findByRoomsNumber(String roomNumber);
+  Rooms searchRoomsByNumber(String roomNumber);
 }

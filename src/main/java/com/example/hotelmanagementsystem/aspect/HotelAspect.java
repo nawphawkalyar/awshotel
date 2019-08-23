@@ -1,7 +1,8 @@
 package com.example.hotelmanagementsystem.aspect;
 
+import com.example.hotelmanagementsystem.exception.RoomNotFoundException;
 import com.example.hotelmanagementsystem.model.Rooms;
-import com.example.hotelmanagementsystem.service.RoomService;
+import com.example.hotelmanagementsystem.repository.RoomsRepository;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
@@ -10,7 +11,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 import javax.persistence.EntityNotFoundException;
-import java.util.Optional;
 
 @Aspect
 @Component
@@ -18,10 +18,13 @@ public class HotelAspect {
 
   private Logger logger=LoggerFactory.getLogger(this.getClass());
 
-  private final RoomService roomService;
 
-  public HotelAspect(RoomService roomService) {
-    this.roomService = roomService;
+  private final RoomsRepository roomsRepository;
+
+  public HotelAspect( RoomsRepository roomsRepository) {
+
+
+    this.roomsRepository=roomsRepository;
   }
 
   @Before("execution(* *.processRooms(..))")
@@ -32,7 +35,7 @@ public class HotelAspect {
 
       logger.info("Room Number:"+ room.getRoomsNumber());
 
-     for(Rooms rooms:roomService.findAll()){
+     for(Rooms rooms: roomsRepository.findAll()){
           if(rooms.getRoomsNumber().equals(room.getRoomsNumber())){
             roomNumberSame=true;
           }
@@ -52,9 +55,18 @@ public class HotelAspect {
   @Before("execution(* *.showRoomDetails(..))")
   public void roomNotFoundAspect(JoinPoint joinPoint){
     Object[] args=joinPoint.getArgs();
-    Rooms rooms=roomService.findById((long)args[1]);
-    if(rooms==null){
-      throw new EntityNotFoundException((long)args[1]+ " Not Found.");
-    }
+    Rooms rooms= roomsRepository.findById((long)args[1])
+            .orElseThrow(()-> new EntityNotFoundException((long)args[1]+ " Not Found Entity!"));
+
+  }
+
+  @Before("execution(* *.searchRoomsByNumber(..))")
+  public void roomNotFoundFindAspect(JoinPoint joinPoint){
+    Object[] arg=joinPoint.getArgs();
+
+    logger.info( arg[0]+ " Room Number");
+    roomsRepository.findByRoomsNumber(String.valueOf(arg[0]))
+            .orElseThrow(()-> new RoomNotFoundException(arg[0] + " Not Found."));
+
   }
 }

@@ -82,11 +82,12 @@ public class RoomController {
   }
 
   @GetMapping("/findroom")
-  public String findRoomByRoomNumber(Model model,HttpServletRequest request){
-      String roomNumber=request.getParameter("roomnumber");
-      logger.info("RoomNumber"+ roomNumber);
+  public String searchRoom(Model model,HttpServletRequest request){
+      Rooms rooms=roomService
+              .searchRoomsByNumber(request.getParameter("roomnumber"));
+      model.addAttribute("room",rooms);
 
-     return "redirect:/rooms";
+     return "redirect:/room/"+rooms.getId();
   }
 
   

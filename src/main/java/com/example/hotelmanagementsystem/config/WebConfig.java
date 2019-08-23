@@ -1,5 +1,6 @@
 package com.example.hotelmanagementsystem.config;
 
+import com.example.hotelmanagementsystem.exception.RoomNotFoundException;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -14,7 +15,8 @@ import javax.servlet.http.HttpServletRequest;
 @ControllerAdvice
 public class WebConfig implements WebMvcConfigurer {
 
-  @ExceptionHandler({IllegalArgumentException.class, EntityNotFoundException.class})
+  @ExceptionHandler({IllegalArgumentException.class, EntityNotFoundException.class,
+          RoomNotFoundException.class})
   public ModelAndView handleException(HttpServletRequest request,Exception ex){
     ModelAndView modelAndView=new ModelAndView();
     modelAndView.addObject("exception",ex);
