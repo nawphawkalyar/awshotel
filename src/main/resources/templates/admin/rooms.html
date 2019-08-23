@@ -12,6 +12,9 @@
             <div th:if="${deletesuccess}" class="alert alert-success" role="alert">
                 Successfully Deleted!
             </div>
+            <div th:if="${updatesuccess}" class="alert alert-success" role="alert">
+                Successfully Updated!
+            </div>
             <div class="row">
                 <div class="col-sm-3" th:each="room:${rooms}">
                     <div class="card my-4" style="width: 18rem;" th:style="${room.roomStatus == room.roomStatus.Reverse}?${'border-color:green;'}:${'border-color:red;'}">
