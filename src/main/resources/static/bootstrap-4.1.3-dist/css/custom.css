@@ -1,0 +1,8 @@
+#head-image{
+    background: url("../../images/bg1.jpg") no-repeat fixed center/cover;
+}
+.navbar-color .navbar-brand {
+    background-color: #dac525;
+}
+
+
