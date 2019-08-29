@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 <head>
     <meta charset="UTF-8"/>
     <title>Title</title>
@@ -12,16 +13,20 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
           crossorigin="anonymous"/>
 
+    <link href="https://fonts.googleapis.com/css?family=Raleway:100,300,500,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Questrial" rel="stylesheet">
+
 </head>
 <body>
 
     <div id="head-image" style="position:relative; height: 100vh;">
             <div class="navbar navbar-expand-md fixed-top">
-                <h3 class="navbar-brand text-white">Delux</h3>
+                <h3 class="navbar-brand text-white">
+                    <a href="#" th:href="@{/home}">Delux</a></h3>
                 <ul class="nav navbar-nav ml-auto">
 
                     <li class="nav-item">
-                        <a class="nav-link active text-white" href="#">Active</a>
+                        <a class="nav-link active text-white" th:href="@{/view/rooms}" href="#">Rooms</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link text-white" href="#">Link</a>
@@ -41,7 +46,7 @@
 
     </div>
 
-
+    <div layout:fragment="view">
     <section class="p-5">
 
         <div class="container-fluid">
@@ -170,6 +175,8 @@
         </div>
 
     </section>
+
+    </div>
 
 
 
