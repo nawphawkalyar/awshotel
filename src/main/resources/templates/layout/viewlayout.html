@@ -15,38 +15,36 @@
 </head>
 <body>
 
-    <div class="container-fluid">
-        <div class="row my-4" id="head-image">
-            <h3 class="text-white justify-content-start col">Delux</h3>
-            <ul class="nav justify-content-end">
-                <li class="nav-item col">
-                    <a class="nav-link active text-white mx-3" href="#">Active</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-white mx-3" href="#">Link</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-white mx-3" href="#">Link</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-white mr-4" href="#">Disabled</a>
-                </li>
-            </ul>
+    <div id="head-image" style="position:relative; height: 100vh;">
+            <div class="navbar navbar-expand-md fixed-top">
+                <h3 class="navbar-brand text-white">Delux</h3>
+                <ul class="nav navbar-nav ml-auto">
 
-
-        </div>
-
-        <div class="text-white text-center ">
-        <h3>Welcome to The Deluxe</h3>
-        <p class="text-muted">Hotel &amp; Resort</p>
+                    <li class="nav-item">
+                        <a class="nav-link active text-white" href="#">Active</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="#">Link</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="#">Link</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="#">Disabled</a>
+                    </li>
+                </ul>
+            </div>
+        <div class="text-white text-center" style="position: absolute; top: 30%; left: 30%;">
+        <h3 class="display-2">Welcome to The Deluxe</h3>
+        <p class="text-white display-3">Hotel &amp; Resort</p>
         </div>
 
     </div>
 
 
-    <section>
+    <section class="p-5">
 
-        <div class="container">
+        <div class="container-fluid">
             <div class="row">
                 <div class="col-md-5 mt-md-5">
                     <img src="../../static/images/image5.jpg" th:src="@{/images/image5.jpg}" height="600" width="400" alt="">
@@ -72,26 +70,26 @@
 
     <section>
 
-        <div class="container">
+        <div class="container-fluid py-5">
             <div class="row">
                 <div class="col-sm-3">
-                    <h4 class="text-center text-info my-3">Front Desk
-                        <p><i class="fas fa-desktop fa-3x"></i></p></h4>
+                    <h4 class="text-center text-info mb-5">Front Desk</h4>
+                        <p class="mb-5 text-info text-center"><i class="fas fa-desktop fa-4x"></i></p>
                     <p>A small river named Duden flows by their place and supplies.</p>
                 </div>
                 <div class="col-sm-3">
-                    <h4 class="text-center text-info my-3">Restaurant Bar
-                    <p><i class="fas fa-utensils fa-3x"></i></p></h4>
+                    <h4 class="text-center text-info mb-5">Restaurant Bar</h4>
+                    <p class="mb-5 text-info text-center"><i class="fas fa-utensils fa-4x"></i></p>
                     <p>A small river named Duden flows by their place and supplies.</p>
                 </div>
                 <div class="col-sm-3">
-                    <h4 class="text-center text-info my-3">Transfer Services
-                        <p><i class="fas fa-taxi fa-3x"></i></p></h4>
+                    <h4 class="text-center text-info mb-5">Transfer Services</h4>
+                        <p class="mb-5 text-info text-center"><i class="fas fa-taxi fa-4x"></i></p>
                     <p>A small river named Duden flows by their place and supplies.</p>
                 </div>
                 <div class="col-sm-3">
-                    <h4 class="text-center text-info my-3">Spa Services
-                        <p><i class="fas fa-spa fa-3x"></i></p></h4>
+                    <h4 class="text-center text-info mb-5">Spa Services</h4>
+                        <p class="mb-5 text-info text-center"><i class="fas fa-spa fa-4x"></i></p>
                     <p>A small river named Duden flows by their place and supplies.</p>
                 </div>
 
@@ -102,17 +100,16 @@
     </section>
 
     <section>
-        <div class="container bg-light">
+        <div class="container-fluid bg-light py-5">
 
-
-            <div  style="width:100%;height: 300px">
-                <h3 class="align-content-center text-center text-dark">Our Rooms</h3>
+            <div class="row justify-content-center align-content-center mb-1" style="height: 300px;">
+                <h3 class="text-dark">Our Rooms</h3>
             </div>
 
 
             <div class="row my-4">
                 <div class="col-sm-4">
-                    <div class="card" style="width: 18rem;">
+                    <div class="card">
                         <img class="card-img-top" src="../../static/images/100.jpeg" th:src="@{/images/100.jpeg}" alt="Card image cap">
                         <div class="card-body">
                             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -121,7 +118,7 @@
                     </div>
                 </div>
                 <div class="col-sm-4">
-                    <div class="card" style="width: 18rem;">
+                    <div class="card">
                         <img class="card-img-top" src="../../static/images/101.jpeg" th:src="@{/images/101.jpeg}" alt="Card image cap">
                         <div class="card-body">
                             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -130,7 +127,7 @@
                     </div>
                 </div>
                 <div class="col-sm-4">
-                    <div class="card" style="width: 18rem;">
+                    <div class="card">
                         <img class="card-img-top" src="../../static/images/102.jpeg" th:src="@{/images/102.jpeg}" alt="Card image cap">
                         <div class="card-body">
                             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -145,7 +142,7 @@
 
             <div class="row">
                 <div class="col-sm-4">
-                    <div class="card" style="width: 18rem;">
+                    <div class="card">
                         <img class="card-img-top" src="../../static/images/103.jpeg" th:src="@{/images/103.jpeg}" alt="Card image cap">
                         <div class="card-body">
                             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -153,7 +150,7 @@
                     </div>
                 </div>
                 <div class="col-sm-4">
-                    <div class="card" style="width: 18rem;">
+                    <div class="card">
                         <img class="card-img-top" src="../../static/images/104.jpeg" th:src="@{/images/104.jpeg}" alt="Card image cap">
                         <div class="card-body">
                             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -161,7 +158,7 @@
                     </div>
                 </div>
                 <div class="col-sm-4">
-                    <div class="card" style="width: 18rem;">
+                    <div class="card">
                         <img class="card-img-top" src="../../static/images/105.jpeg" th:src="@{/images/105.jpeg}" alt="Card image cap">
                         <div class="card-body">
                             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
