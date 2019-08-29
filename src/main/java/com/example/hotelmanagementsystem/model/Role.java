@@ -1,5 +1,6 @@
 package com.example.hotelmanagementsystem.model;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
 
@@ -9,7 +10,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-
+@AllArgsConstructor
+@Data
+@RequiredArgsConstructor
 public class Role {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)

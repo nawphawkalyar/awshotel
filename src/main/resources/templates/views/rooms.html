@@ -8,8 +8,24 @@
 </head>
 <body>
     <div layout:fragment="view">
-
-
+        <section>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-3" th:each="room:${rooms}">
+                    <div class="card my-4" style="width: 18rem;" th:style="${room.roomStatus == room.roomStatus.Reverse}?${'border-color:green;'}:${'border-color:red;'}">
+                        <!--<div class="card-header text-muted text-center">Rooms</div>-->
+                        <img class="card-img-top" src="../../static/images/100.jpeg" th:src="@{'/images/'+ ${room.roomsNumber}+'.jpeg'}" alt="Card image cap">
+                        <div class="card-body">
+                            <p class="card-text" th:text="${'Room Number : '+room.roomsNumber}"></p>
+                            <p class="card-text" th:text="${'Room Status : '+room.roomStatus}"></p>
+                            <p class="card-text" th:text="${'Room Type  : '+room.roomType}"></p>
+                            <a href="#" th:href="@{'/room/'+${room.id}}" class="btn btn-primary btn-sm">Go Details</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </section>
     </div>
 </body>
 </html>

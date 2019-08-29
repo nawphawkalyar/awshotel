@@ -1,11 +1,14 @@
 package com.example.hotelmanagementsystem.config;
 
 import com.example.hotelmanagementsystem.exception.RoomNotFoundException;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import javax.persistence.EntityNotFoundException;
@@ -25,4 +28,19 @@ public class WebConfig implements WebMvcConfigurer {
     modelAndView.setViewName("admin/roomexistederror");
     return modelAndView;
   }
+
+  @Bean
+  public BCryptPasswordEncoder bCryptPasswordEncoder(){
+    BCryptPasswordEncoder bCryptPasswordEncoder=new BCryptPasswordEncoder();
+    return  bCryptPasswordEncoder;
+  }
+
+
+  @Override
+  public void addResourceHandlers(ResourceHandlerRegistry registry) {
+      registry.addResourceHandler("/resources/**")
+              .addResourceLocations("/resources/");
+  }
+
+
 }
