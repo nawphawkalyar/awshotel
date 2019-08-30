@@ -41,7 +41,7 @@ public class RoomController {
     return "redirect:/rooms";
   }
 
-  @GetMapping("/rooms")
+  @GetMapping("/room/rooms")
   public String showRooms(Model model){
     model.addAttribute("rooms",roomService.findAll());
     model.addAttribute("deletesuccess",model.containsAttribute("delete"));
@@ -81,7 +81,7 @@ public class RoomController {
     return "redirect:/rooms";
   }
 
-  @GetMapping("/findroom")
+  @GetMapping("/room/findroom")
   public String searchRoom(Model model,HttpServletRequest request){
       Rooms rooms=roomService
               .searchRoomsByNumber(request.getParameter("roomnumber"));

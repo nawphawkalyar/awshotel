@@ -2,19 +2,25 @@ package com.example.hotelmanagementsystem.model;
 
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Entity
 
-public class UserProfile {
+public class UserProfile implements UserDetails {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
   private String firstName;
   private String lastName;
+  private String password;
   private String email;
   private String phoneNumber;
   @Enumerated(EnumType.STRING)
@@ -31,7 +37,7 @@ public class UserProfile {
     this.gender = gender;
   }
 
-  @ManyToMany
+  @ManyToMany(fetch = FetchType.EAGER)
   private List<Role> roles=new ArrayList<>();
 
 
@@ -97,5 +103,48 @@ public class UserProfile {
 
   public void setRoles(List<Role> roles) {
     this.roles = roles;
+  }
+
+  @Override
+  public Collection<? extends GrantedAuthority> getAuthorities() {
+    return roles
+            .stream()
+            .map(role -> new SimpleGrantedAuthority(role.getName()))
+            .collect(Collectors.toSet());
+  }
+
+  @Override
+  public String getPassword() {
+    return this.password;
+  }
+
+  @Override
+  public String getUsername() {
+    return this.email;
+  }
+
+  @Override
+  public boolean isAccountNonExpired() {
+    return true;
+  }
+
+  @Override
+  public boolean isAccountNonLocked() {
+    return true;
+  }
+
+  @Override
+  public boolean isCredentialsNonExpired() {
+    return true;
+  }
+
+  @Override
+  public boolean isEnabled() {
+    return true;
+  }
+
+
+  public void setPassword(String password) {
+    this.password = password;
   }
 }

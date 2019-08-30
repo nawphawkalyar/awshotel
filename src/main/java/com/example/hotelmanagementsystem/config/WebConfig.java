@@ -3,6 +3,7 @@ package com.example.hotelmanagementsystem.config;
 import com.example.hotelmanagementsystem.exception.RoomNotFoundException;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -19,7 +20,7 @@ import javax.servlet.http.HttpServletRequest;
 public class WebConfig implements WebMvcConfigurer {
 
   @ExceptionHandler({IllegalArgumentException.class, EntityNotFoundException.class,
-          RoomNotFoundException.class})
+          RoomNotFoundException.class, UsernameNotFoundException.class})
   public ModelAndView handleException(HttpServletRequest request,Exception ex){
     ModelAndView modelAndView=new ModelAndView();
     modelAndView.addObject("exception",ex);
