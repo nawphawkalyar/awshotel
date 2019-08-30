@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
+import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import javax.persistence.EntityNotFoundException;
@@ -28,6 +29,11 @@ public class WebConfig implements WebMvcConfigurer {
     modelAndView.addObject("url",request.getRequestURL());
     modelAndView.setViewName("admin/roomexistederror");
     return modelAndView;
+  }
+
+  @Override
+  public void addViewControllers(ViewControllerRegistry registry) {
+      registry.addRedirectViewController("/","/home");
   }
 
   @Bean

@@ -60,8 +60,16 @@ public class WebMvcSecurity extends WebSecurityConfigurerAdapter {
                 .antMatchers("/room/**").hasRole("ADMIN")
                 .and()
                 .formLogin()
+                .loginPage("/login")
+                .permitAll()
+                .usernameParameter("email")
                 .and()
-                .httpBasic()
+                .logout()
+                .and()
+                .rememberMe()
+                .and()
+                .csrf()
+                .disable()
                 ;
   }
 
