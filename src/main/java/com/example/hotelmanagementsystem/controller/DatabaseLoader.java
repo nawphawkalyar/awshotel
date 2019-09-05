@@ -42,7 +42,7 @@ public class DatabaseLoader implements CommandLineRunner {
     userProfile.setPassword(bCryptPasswordEncoder.encode("kyaw"));
 
 
-  /*  this.roleRepository.save(adminRole);
+    /*this.roleRepository.save(adminRole);
     this.roleRepository.save(userRole);
     this.userProfileRepository.save(userProfile);*/
   }

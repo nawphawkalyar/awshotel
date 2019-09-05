@@ -38,7 +38,7 @@ public class RoomController {
       return "admin/roomForm";
     }
     roomService.create(rooms);
-    return "redirect:/rooms";
+    return "redirect:room/rooms";
   }
 
   @GetMapping("/room/rooms")
@@ -59,7 +59,7 @@ public class RoomController {
   public String deleteRoom(@PathVariable("id") long id, RedirectAttributes redirectAttributes){
       roomService.delete(id);
       redirectAttributes.addFlashAttribute("delete",true);
-      return "redirect:/rooms";
+      return "redirect:/room/rooms";
   }
 
   @GetMapping("/room/update/{id}")
@@ -78,7 +78,7 @@ public class RoomController {
     roomService.update(updateId,rooms);
     redirectAttributes.addFlashAttribute("update",true);
 
-    return "redirect:/rooms";
+    return "redirect:/room/rooms";
   }
 
   @GetMapping("/room/findroom")
