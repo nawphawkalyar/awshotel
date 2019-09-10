@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      layout:decorate="./layout/adminlayout.html">
+      layout:decorate="./layout/viewlayout.html">
 <head>
     <meta charset="UTF-8"/>
     <title>Title</title>
 </head>
 <body>
-    <div layout:fragment="admin">
+    <div layout:fragment="view">
         <div class="container">
             <h1 class="text-center text-muted my-3">Room Details</h1>
 
@@ -25,10 +25,10 @@
 
 
             <div>
-                <a href="#" class="btn btn-primary mx-3 my-4"
-                   th:href="@{'/room/delete/'+ ${room.id}}">Delete</a>
+                <a href="#" class="btn btn-primary mx-3"
+                   th:href="@{'/view/userprofile/'+${room.id}}">Booking</a>
                 <a href="#" class="btn btn-primary"
-                   th:href="@{'/room/update/'+ ${room.id}}">Update</a>
+                   th:href="@{'/home'}">Home</a>
             </div>
         </div>
         </div>

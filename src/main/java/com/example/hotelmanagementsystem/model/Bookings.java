@@ -117,6 +117,10 @@ public class Bookings {
     this.fromStart = fromStart;
   }
 
+  public LocalDate getFromStart() {
+    return fromStart;
+  }
+
   public LocalDate getToEnd() {
     return toEnd;
   }

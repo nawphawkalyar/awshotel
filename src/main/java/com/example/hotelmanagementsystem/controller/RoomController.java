@@ -38,7 +38,7 @@ public class RoomController {
       return "admin/roomForm";
     }
     roomService.create(rooms);
-    return "redirect:room/rooms";
+    return "redirect:/room/rooms";
   }
 
   @GetMapping("/room/rooms")
